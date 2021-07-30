@@ -406,6 +406,62 @@ impl core::fmt::Debug for TEST {
 }
 #[doc = "Test Status"]
 pub mod test;
+#[doc = "MSEL pin state"]
+pub struct MSEL {
+    _marker: PhantomData<*const ()>,
+}
+unsafe impl Send for MSEL {}
+impl MSEL {
+    #[doc = r"Pointer to the register block"]
+    pub const PTR: *const msel::RegisterBlock = 0x1000 as *const _;
+    #[doc = r"Return the pointer to the register block"]
+    #[inline(always)]
+    pub const fn ptr() -> *const msel::RegisterBlock {
+        Self::PTR
+    }
+}
+impl Deref for MSEL {
+    type Target = msel::RegisterBlock;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        unsafe { &*Self::PTR }
+    }
+}
+impl core::fmt::Debug for MSEL {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("MSEL").finish()
+    }
+}
+#[doc = "MSEL pin state"]
+pub mod msel;
+#[doc = "Power Reset Clocking Interrupt block"]
+pub struct PRCI {
+    _marker: PhantomData<*const ()>,
+}
+unsafe impl Send for PRCI {}
+impl PRCI {
+    #[doc = r"Pointer to the register block"]
+    pub const PTR: *const prci::RegisterBlock = 0x1000_0000 as *const _;
+    #[doc = r"Return the pointer to the register block"]
+    #[inline(always)]
+    pub const fn ptr() -> *const prci::RegisterBlock {
+        Self::PTR
+    }
+}
+impl Deref for PRCI {
+    type Target = prci::RegisterBlock;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        unsafe { &*Self::PTR }
+    }
+}
+impl core::fmt::Debug for PRCI {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("PRCI").finish()
+    }
+}
+#[doc = "Power Reset Clocking Interrupt block"]
+pub mod prci;
 #[no_mangle]
 static mut DEVICE_PERIPHERALS: bool = false;
 #[doc = r"All the peripherals"]
@@ -439,6 +495,10 @@ pub struct Peripherals {
     pub SPI2: SPI2,
     #[doc = "TEST"]
     pub TEST: TEST,
+    #[doc = "MSEL"]
+    pub MSEL: MSEL,
+    #[doc = "PRCI"]
+    pub PRCI: PRCI,
 }
 impl Peripherals {
     #[doc = r"Returns all the peripherals *once*"]
@@ -497,6 +557,12 @@ impl Peripherals {
                 _marker: PhantomData,
             },
             TEST: TEST {
+                _marker: PhantomData,
+            },
+            MSEL: MSEL {
+                _marker: PhantomData,
+            },
+            PRCI: PRCI {
                 _marker: PhantomData,
             },
         }
