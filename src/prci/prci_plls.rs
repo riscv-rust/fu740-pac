@@ -103,30 +103,30 @@ impl R {
     pub fn cltxpll(&self) -> CLTXPLL_R {
         CLTXPLL_R::new((self.bits & 0x01) != 0)
     }
-    #[doc = "Bit 0 - Indicates presence of gemgxlpll"]
+    #[doc = "Bit 1 - Indicates presence of gemgxlpll"]
     #[inline(always)]
     pub fn gemgxlpll(&self) -> GEMGXLPLL_R {
-        GEMGXLPLL_R::new((self.bits & 0x01) != 0)
+        GEMGXLPLL_R::new(((self.bits >> 1) & 0x01) != 0)
     }
-    #[doc = "Bit 0 - Indicates presence of ddrpll"]
+    #[doc = "Bit 2 - Indicates presence of ddrpll"]
     #[inline(always)]
     pub fn ddrpll(&self) -> DDRPLL_R {
-        DDRPLL_R::new((self.bits & 0x01) != 0)
+        DDRPLL_R::new(((self.bits >> 2) & 0x01) != 0)
     }
-    #[doc = "Bit 0 - Indicates presence of hfpclkpll"]
+    #[doc = "Bit 3 - Indicates presence of hfpclkpll"]
     #[inline(always)]
     pub fn hfpclkpll(&self) -> HFPCLKPLL_R {
-        HFPCLKPLL_R::new((self.bits & 0x01) != 0)
+        HFPCLKPLL_R::new(((self.bits >> 3) & 0x01) != 0)
     }
-    #[doc = "Bit 0 - Indicates presence of dvfscorepll"]
+    #[doc = "Bit 4 - Indicates presence of dvfscorepll"]
     #[inline(always)]
     pub fn dvfscorepll(&self) -> DVFSCOREPLL_R {
-        DVFSCOREPLL_R::new((self.bits & 0x01) != 0)
+        DVFSCOREPLL_R::new(((self.bits >> 4) & 0x01) != 0)
     }
-    #[doc = "Bit 0 - Indicates presence of corepll"]
+    #[doc = "Bit 5 - Indicates presence of corepll"]
     #[inline(always)]
     pub fn corepll(&self) -> COREPLL_R {
-        COREPLL_R::new((self.bits & 0x01) != 0)
+        COREPLL_R::new(((self.bits >> 5) & 0x01) != 0)
     }
 }
 #[doc = "PLL presence register\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [prci_plls](index.html) module"]

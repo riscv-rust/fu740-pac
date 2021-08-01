@@ -372,23 +372,23 @@ _add:
             bitWidth: 1
           gemgxlpll:
             description: Indicates presence of gemgxlpll
-            bitOffset: 0
+            bitOffset: 1
             bitWidth: 1
           ddrpll:
             description: Indicates presence of ddrpll
-            bitOffset: 0
+            bitOffset: 2
             bitWidth: 1
           hfpclkpll:
             description: Indicates presence of hfpclkpll
-            bitOffset: 0
+            bitOffset: 3
             bitWidth: 1
           dvfscorepll:
             description: Indicates presence of dvfscorepll
-            bitOffset: 0
+            bitOffset: 4
             bitWidth: 1
           corepll:
             description: Indicates presence of corepll
-            bitOffset: 0
+            bitOffset: 5
             bitWidth: 1
       procmoncfg:
         addressOffset: 0xf0
