@@ -2,6 +2,7 @@ _svd: "fu740.svd"
 
 _modify:
   name: Freedom U740-C000
+  width: 64
   sifive_ccache0_0:
     name: CCACHE
     description: L2 Cache Controller
