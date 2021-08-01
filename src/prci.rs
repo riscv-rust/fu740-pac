@@ -41,6 +41,9 @@ pub struct RegisterBlock {
     _reserved17: [u8; 0x80],
     #[doc = "0xe0 - PLL presence register"]
     pub prci_plls: crate::Reg<prci_plls::PRCI_PLLS_SPEC>,
+    _reserved18: [u8; 0x0c],
+    #[doc = "0xf0 - "]
+    pub procmoncfg: crate::Reg<procmoncfg::PROCMONCFG_SPEC>,
 }
 #[doc = "hfxosccfg register accessor: an alias for `Reg<HFXOSCCFG_SPEC>`"]
 pub type HFXOSCCFG = crate::Reg<hfxosccfg::HFXOSCCFG_SPEC>;
@@ -114,3 +117,7 @@ pub mod hfpclk_div_reg;
 pub type PRCI_PLLS = crate::Reg<prci_plls::PRCI_PLLS_SPEC>;
 #[doc = "PLL presence register"]
 pub mod prci_plls;
+#[doc = "procmoncfg register accessor: an alias for `Reg<PROCMONCFG_SPEC>`"]
+pub type PROCMONCFG = crate::Reg<procmoncfg::PROCMONCFG_SPEC>;
+#[doc = ""]
+pub mod procmoncfg;

@@ -390,3 +390,9 @@ _add:
             description: Indicates presence of corepll
             bitOffset: 0
             bitWidth: 1
+      procmoncfg:
+        addressOffset: 0xf0
+        fields:
+          core_clock:
+            bitOffset: 24
+            bitWidth: 1
