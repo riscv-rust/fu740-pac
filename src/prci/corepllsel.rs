@@ -34,7 +34,102 @@ impl From<crate::W<COREPLLSEL_SPEC>> for W {
         W(writer)
     }
 }
+#[doc = "core_pll mux clock select"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum SOURCE_A {
+    #[doc = "0: Select corepll output"]
+    COREPLL = 0,
+    #[doc = "1: Select dvfscorepll output"]
+    DVFSCOREPLL = 1,
+}
+impl From<SOURCE_A> for bool {
+    #[inline(always)]
+    fn from(variant: SOURCE_A) -> Self {
+        variant as u8 != 0
+    }
+}
+#[doc = "Field `source` reader - core_pll mux clock select"]
+pub struct SOURCE_R(crate::FieldReader<bool, SOURCE_A>);
+impl SOURCE_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        SOURCE_R(crate::FieldReader::new(bits))
+    }
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> SOURCE_A {
+        match self.bits {
+            false => SOURCE_A::COREPLL,
+            true => SOURCE_A::DVFSCOREPLL,
+        }
+    }
+    #[doc = "Checks if the value of the field is `COREPLL`"]
+    #[inline(always)]
+    pub fn is_corepll(&self) -> bool {
+        **self == SOURCE_A::COREPLL
+    }
+    #[doc = "Checks if the value of the field is `DVFSCOREPLL`"]
+    #[inline(always)]
+    pub fn is_dvfscorepll(&self) -> bool {
+        **self == SOURCE_A::DVFSCOREPLL
+    }
+}
+impl core::ops::Deref for SOURCE_R {
+    type Target = crate::FieldReader<bool, SOURCE_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `source` writer - core_pll mux clock select"]
+pub struct SOURCE_W<'a> {
+    w: &'a mut W,
+}
+impl<'a> SOURCE_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: SOURCE_A) -> &'a mut W {
+        self.bit(variant.into())
+    }
+    #[doc = "Select corepll output"]
+    #[inline(always)]
+    pub fn corepll(self) -> &'a mut W {
+        self.variant(SOURCE_A::COREPLL)
+    }
+    #[doc = "Select dvfscorepll output"]
+    #[inline(always)]
+    pub fn dvfscorepll(self) -> &'a mut W {
+        self.variant(SOURCE_A::DVFSCOREPLL)
+    }
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
+    pub fn set_bit(self) -> &'a mut W {
+        self.bit(true)
+    }
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
+    pub fn clear_bit(self) -> &'a mut W {
+        self.bit(false)
+    }
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
+    pub fn bit(self, value: bool) -> &'a mut W {
+        self.w.bits = (self.w.bits & !0x01) | (value as u32 & 0x01);
+        self.w
+    }
+}
+impl R {
+    #[doc = "Bit 0 - core_pll mux clock select"]
+    #[inline(always)]
+    pub fn source(&self) -> SOURCE_R {
+        SOURCE_R::new((self.bits & 0x01) != 0)
+    }
+}
 impl W {
+    #[doc = "Bit 0 - core_pll mux clock select"]
+    #[inline(always)]
+    pub fn source(&mut self) -> SOURCE_W {
+        SOURCE_W { w: self }
+    }
     #[doc = "Writes raw bits to the register."]
     #[inline(always)]
     pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {

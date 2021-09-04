@@ -200,6 +200,11 @@ _add:
       core_clk_sel_reg:
         description: Core clock source register
         addressOffset: 0x24
+        fields:
+          source:
+            description: Core clock source
+            bitOffset: 0
+            bitWidth: 1
       devices_reset_n:
         description: Software controlled resets
         addressOffset: 0x28
@@ -314,6 +319,11 @@ _add:
       corepllsel:
         description: Clock select register
         addressOffset: 0x40
+        fields:
+          source:
+            description: core_pll mux clock select
+            bitOffset: 0
+            bitWidth: 1
       hfpclk_pllcfg:
         description: PLL Configuration and Status register
         addressOffset: 0x50
@@ -358,6 +368,11 @@ _add:
       hfpclkpllsel:
         description: Periphery clock source register
         addressOffset: 0x58
+        fields:
+          source:
+            description: hfpclk clock source
+            bitOffset: 0
+            bitWidth: 1
       hfpclk_div_reg:
         description: HFPCLK PLL divider register
         addressOffset: 0x5c
@@ -396,3 +411,17 @@ _add:
           core_clock:
             bitOffset: 24
             bitWidth: 1
+
+PRCI:
+  core_clk_sel_reg:
+    source:
+      pll_mux: [0, "Select core_pll mux output"]
+      hfclk: [1, "Select hfclk clock"]
+  corepllsel:
+    source:
+      corepll: [0, "Select corepll output"]
+      dvfscorepll: [1, "Select dvfscorepll output"]
+  hfpclkpllsel:
+    source:
+      hfpclkpll: [ 0, "Select hfpclkpll output" ]
+      hfclk: [ 1, "Select hfclk clock" ]
