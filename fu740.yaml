@@ -64,7 +64,7 @@ _add:
     addressBlock:
       offset: 0x0
       size: 0x1000
-      usage: "PRCI registers"
+      usage: "registers"
     registers:
       hfxosccfg:
         description: Crystal Oscillator Configuration and Status register
